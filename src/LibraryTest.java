@@ -25,4 +25,12 @@ public class LibraryTest {
         obj.borrowBook("my name");
         assertEquals(0, obj.availableBook(),"You have borrow the book " );
     }
+    @Test
+    public void testAlreadBorrowOrUnavailable(){
+        obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
+        obj.borrowBook("my name");
+        obj.borrowBook("my name");
+        obj.borrowBook("My namee");
+        assertEquals(0, obj.availableBook() );
+    }
 }
