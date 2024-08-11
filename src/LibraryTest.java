@@ -5,10 +5,10 @@ import org.junit.*;;
 
 public class LibraryTest {
 
-    Library obj = new Library("", "", "", 0);
+    Library obj = new Library("", "", "", 0);// Initialize Library instance
 
     @Test
-    public void TestaddBook() {
+    public void testAddBook() {
         obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
         int result = obj.lengthOfLibrary();
         assertEquals(1, result, "Book is added");
@@ -26,7 +26,8 @@ public class LibraryTest {
     public void testBorrowBook() {
         obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
         obj.borrowBook("my name");
-        assertEquals(0, obj.availableBook(), "You have borrow the book ");
+        int result = obj.availableBook();
+        assertEquals(0, result, "You have borrow the book ");
     }
 
     @Test
@@ -35,7 +36,8 @@ public class LibraryTest {
         obj.borrowBook("my name");
         obj.borrowBook("my name");
         obj.borrowBook("My namee");
-        assertEquals(0, obj.availableBook());
+        int result = obj.availableBook();
+        assertEquals(0, result);
     }
 
     @Test
@@ -43,7 +45,8 @@ public class LibraryTest {
         obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
         obj.borrowBook("my name");
         obj.returnBook("my name");
-        assertEquals(1, obj.availableBook());
+        int result = obj.availableBook();
+        assertEquals(1, result);
     }
 
     @Test
@@ -51,7 +54,8 @@ public class LibraryTest {
         obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
         obj.borrowBook("my name");
         obj.returnBook("my journey");
-        assertEquals(0, obj.availableBook(), "This book is not borrowed from this Library");
+        int result = obj.availableBook();
+        assertEquals(0, result, "This book is not borrowed from this Library");
     }
 
     @Test
