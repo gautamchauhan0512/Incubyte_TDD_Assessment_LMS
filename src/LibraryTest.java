@@ -37,7 +37,14 @@ public class LibraryTest {
     public void returnBookTest(){
         obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
         obj.borrowBook("my name");
-        obj.returnBook();
+        obj.returnBook("my name");
         assertEquals(1, obj.availableBook());
+    }
+    @Test
+    public void returnBookNotBorrowedTest(){
+        obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
+        obj.borrowBook("my name");
+        obj.returnBook("my journey");
+        assertEquals(0, obj.availableBook(),"This book is not borrowed from this Library");
     }
 }

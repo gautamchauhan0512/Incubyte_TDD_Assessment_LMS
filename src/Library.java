@@ -53,10 +53,13 @@ public class Library {
         return availableBooksCount;
     }
 
-    public void returnBook(){
+    public void returnBook(String title){
         for (Library k : library) {
-            k.isBorrowed = false;
-            return;
+            if (k.title.equals(title) && k.isBorrowed) {
+                k.isBorrowed = false;
+                return;
+            }
         }
+        System.out.println("This book is not borrowed from this library");
     }
 }
