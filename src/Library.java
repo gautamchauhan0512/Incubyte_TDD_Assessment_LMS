@@ -19,7 +19,12 @@ public class Library {
     }
 
     public void addBook(String isbn, String title, String author, int year) {
-
+        for (Library k : library) {
+            if (k.isbn.equals(isbn)) {
+                System.out.println("Book with ISBN " + isbn + " already exists.");
+                return;
+            }
+        }
         Library newBook = new Library(isbn, title, author, year);
         library.add(newBook);
         System.out.println("Book is added");
