@@ -33,5 +33,20 @@ public class Library {
     public int lengthOfLibrary() {
         return library.size();
     }
-
+    public void borrowBook() {   
+        for(Library k : library){
+            k.isBorrowed = true;
+            return;
+        }  
+    }
+    public int availableBook() {
+        int availableBooksCount = 0;
+        for (Library k : library) {
+            if (!k.isBorrowed) {
+                availableBooksCount++;
+            }
+        }
+        return availableBooksCount;
+    }
+   
 }
