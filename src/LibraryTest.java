@@ -19,4 +19,10 @@ public class LibraryTest {
         int result = obj.lengthOfLibrary();
         assertEquals(1, result,"Duplicate book should not be added.");
     }
+    @Test
+    public void testBorrowBook(){
+        obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
+        obj.borrowBook();
+        assertEquals(0, obj.availableBook(),"You have borrow the book " );
+    }
 }
