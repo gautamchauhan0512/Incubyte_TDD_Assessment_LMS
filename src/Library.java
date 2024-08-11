@@ -33,11 +33,15 @@ public class Library {
     public int lengthOfLibrary() {
         return library.size();
     }
-    public void borrowBook() {   
+    public void borrowBook(String title) {   
         for(Library k : library){
-            k.isBorrowed = true;
-            return;
-        }  
+            if (k.title.equals(title) && !k.isBorrowed) {
+                k.isBorrowed = true;
+                System.out.println("You have borrowed the book " + title);
+                return;
+            }
+        }
+         System.out.println("The Book " + title + " is unavailable or already borrowed");
     }
     public int availableBook() {
         int availableBooksCount = 0;

@@ -22,7 +22,7 @@ public class LibraryTest {
     @Test
     public void testBorrowBook(){
         obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
-        obj.borrowBook();
+        obj.borrowBook("my name");
         assertEquals(0, obj.availableBook(),"You have borrow the book " );
     }
 }
