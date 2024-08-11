@@ -12,4 +12,11 @@ public class LibraryTest {
         int result = obj.lengthOfLibrary();
         assertEquals(1, result,"Book is added");
     }  
+    @Test
+    public void testAddDuplicateBook(){
+        obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
+        obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
+        int result = obj.lengthOfLibrary();
+        assertEquals(1, result,"Duplicate book should not be added.");
+    }
 }
