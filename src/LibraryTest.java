@@ -37,7 +37,7 @@ public class LibraryTest {
     public void returnBookTest(){
         obj.addBook("isbn111", "my name", "gautam chauhan", 2024);
         obj.borrowBook("my name");
-        obj.returnBook("my name");
+        obj.returnBook();
         assertEquals(1, obj.availableBook());
     }
 }

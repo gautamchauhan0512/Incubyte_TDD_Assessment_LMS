@@ -52,5 +52,11 @@ public class Library {
         }
         return availableBooksCount;
     }
-   
+
+    public void returnBook(){
+        for (Library k : library) {
+            k.isBorrowed = false;
+            return;
+        }
+    }
 }
