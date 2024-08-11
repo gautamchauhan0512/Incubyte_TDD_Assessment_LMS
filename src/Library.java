@@ -19,41 +19,48 @@ public class Library {
     }
 
     public void addBook(String isbn, String title, String author, int year) {
+
+        if (findBookByIsbn(isbn) != null) {
+            return;
+        }
+        library.add(new Library(isbn, title, author, year));
+    }
+
+    public Library findBookByIsbn(String isbn) {
         for (Library k : library) {
             if (k.isbn.equals(isbn)) {
-                System.out.println("Book with ISBN " + isbn + " already exists.");
-                return;
+                return k;
             }
         }
-        Library newBook = new Library(isbn, title, author, year);
-        library.add(newBook);
-        System.out.println("Book is added");
+        return null;
     }
 
     public int lengthOfLibrary() {
         return library.size();
     }
-    public void borrowBook(String title) {   
-        for(Library k : library){
+
+    public void borrowBook(String title) {
+        for (Library k : library) {
             if (k.title.equals(title) && !k.isBorrowed) {
                 k.isBorrowed = true;
                 System.out.println("You have borrowed the book " + title);
                 return;
             }
         }
-         System.out.println("The Book " + title + " is unavailable or already borrowed");
-    }
-    public int availableBook() {
-        int availableBooksCount = 0;
-        for (Library k : library) {
-            if (!k.isBorrowed) {
-                availableBooksCount++;
-            }
-        }
-        return availableBooksCount;
+        System.out.println("The Book " + title + " is unavailable or already borrowed");
     }
 
-    public void returnBook(String title){
+    public int availableBook() {
+        int Count = 0;
+        for (Library k : library) {
+            if (!k.isBorrowed) {
+                Count++;
+            }
+        }
+        return Count;
+    }
+
+    public void returnBook(String title) {
         for (Library k : library) {
             if (k.title.equals(title) && k.isBorrowed) {
                 k.isBorrowed = false;
